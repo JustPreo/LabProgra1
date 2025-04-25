@@ -23,10 +23,11 @@ public class Cerrato_Aaron_PlanillaDeEmpleado {
     public static void main(String[]Args)
     {
     Scanner Input = new Scanner(System.in);
-    
+    Input.useDelimiter("\n");
     System.out.println("***Bienvenido***");
-    System.out.println("Ingrese el nombre del empleado");
-    String nombre = Input.nextLine();
+    System.out.println("Ingrese el nombre completo del empleado");
+    //Scanner.useDelimeter("\n");
+    String nombre = Input.next();
     System.out.println("Ingrese las horas trabajadas en el mes");
     int HorasMes = Input.nextInt();
     Input.nextLine();
