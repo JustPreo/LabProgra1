@@ -63,7 +63,7 @@ public class Cerrato_Aaron_Clases {
         if (diaSemana.equalsIgnoreCase("lunes")||diaSemana.equalsIgnoreCase("martes")||diaSemana.equalsIgnoreCase("miercoles"))
         {
             Boolean diaExamen = null;
-            System.out.println("Es un dia de examen?");
+            System.out.println("Es un dia de examen?Si/No");
             String siNo = input.next();
             if (siNo.equalsIgnoreCase("si"))
             {
@@ -119,7 +119,7 @@ public class Cerrato_Aaron_Clases {
             }
             System.exit(0);
         }
-        else if (diaSemana.equalsIgnoreCase("viernes") && (diaFecha==1 && mesFecha ==1)||(diaFecha==1 && mesFecha==7))//Viajeros
+        else if (diaSemana.equalsIgnoreCase("viernes") && (diaFecha==01 && mesFecha ==01)||(diaFecha==01 && mesFecha==07))//Viajeros
         {
             System.out.println("Comienzo de nuevo ciclo:");
             System.out.println("Ingrese la cantidad de alumnos del nuevo ciclo:");
