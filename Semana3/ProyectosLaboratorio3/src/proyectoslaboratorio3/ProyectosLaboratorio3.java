@@ -5,6 +5,7 @@
 package proyectoslaboratorio3;
 
 import java.util.Scanner;
+import java.util.Random;
 
 /**
  *
@@ -68,8 +69,6 @@ public class ProyectosLaboratorio3 {
                         //----------------------------------------------
                         if (longitud>longitudLarga)
                         {
-                        
-                        
                         longitudLarga = longitud;
                         palabraLarga = palabra;
                         palabraAlrevesLarga = palabraAlreves;
@@ -97,7 +96,6 @@ public class ProyectosLaboratorio3 {
                             
                         }
                         }
-                        System.out.println("PRUEBA DE TESTEO \n"+texto);
                     
                     }//Fin for i
                     
@@ -109,12 +107,50 @@ public class ProyectosLaboratorio3 {
                     
                     break;
                 case '3'://Primos
+                    String divisores = "";
+                    int cantDivisores = 0;
+                    
+                    
+                    System.out.println("Ingrese un numero");
+                    Random ran = new Random();
+                    int numero = ran.nextInt(100)+1;//El +1 para evitar 0
+                    //Genera desde el 0-100
+                    System.out.println("Numero:"+numero);
+                    for (int i=1;i <=numero;i++)
+                    {
+                    if (numero % i == 0)
+                    {
+                        if (divisores.equals("")) //Revisa si es el primer numero
+                        {
+                        divisores = divisores + i;
+                        
+                        }
+                        else //Sino , agrega y
+                        {
+                        divisores = divisores + " y "+i;
+                        }
+                    cantDivisores +=1;
+                    }
+                    }
+                    
+                    if (cantDivisores == 2) //Primo
+                    {
+                        System.out.println("Numero primo "+numero+" solo tiene dos divisiones");
+                        System.out.println("Divisores de "+numero+" son:"+divisores);
+                    }
+                    else //No Primo
+                    {
+                        System.out.println("Numero "+numero+" no es primo");
+                        System.out.println("Divisores de "+numero+" son:"+divisores);
+                    
+                    }
                     break;
                 case '4'://Votaciones
                     System.out.println("Cuantos votantes hay en el pais?");
                     int votantesTotal = input.nextInt();
                     int votoAzul=0 , votoRojo=0 , votoNegro=0 , votoAmarillo=0,votoTotal=0,votoNulo=0;
                     double votoPorcentaje=0,votoPorcentajeTotal=0;
+                    int votoValido = 0,mayor=0;
                     String ganador = "";
                     //Iniciar variables
                     
@@ -129,18 +165,22 @@ public class ProyectosLaboratorio3 {
                             case "azul":
                                 votoAzul ++;
                                 votoTotal++;
+                                votoValido++;
                                 break;
                             case "rojo":
                                 votoRojo ++;
                                 votoTotal++;
+                                votoValido++;
                                 break;
                             case "negro":
                                 votoNegro++;
                                 votoTotal++;
+                                votoValido++;
                                 break;
                             case "amarillo":
                                 votoAmarillo++;
                                 votoTotal++;
+                                votoValido++;
                                 break;
                             default:
                                 votoNulo++;
@@ -148,14 +188,34 @@ public class ProyectosLaboratorio3 {
                                 break;
                                 
                         }
-                        //TODO Determinar lo de 
 
                     }//Fin for
+                    //Determinar ganador con puro if
+                    if (votoAzul>mayor)
+                    {
+                        mayor = votoAzul;
+                        ganador = "AZUL";
+                    }
+                    if (votoRojo>mayor)
+                    {
+                        mayor = votoRojo;
+                        ganador = "ROJO";
+                    }
+                    if (votoNegro>mayor)
+                    {
+                        mayor = votoNegro;
+                        ganador = "NEGRO";
+                    }
+                    if (votoAmarillo>mayor)
+                    {
+                        mayor = votoAmarillo;
+                        ganador = "AMARILLO";
+                    }
                     
                         votoPorcentaje =votantesTotal * 0.6;
-                        if (votoTotal >= votoPorcentaje)
+                        if (votoValido>= votoPorcentaje)
                         {
-                            System.out.println("Gano:");
+                            System.out.println("Gano:"+ganador);
                         
                         }
                     break;
