@@ -150,7 +150,7 @@ public class Cerrato_Aaron_EstructuraCondicional {
                     
                     System.out.println("Ingrese un numero");
                     Random ran = new Random();
-                    int numero = ran.nextInt(100)+1;//El +1 para evitar 0
+                    int numero = ran.nextInt(1,100);
                     //Genera desde el 0-100
                     System.out.println("Numero:"+numero);
                     for (int i=1;i <=numero;i++)
