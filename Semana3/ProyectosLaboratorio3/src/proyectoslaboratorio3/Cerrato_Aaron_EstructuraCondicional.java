@@ -33,11 +33,11 @@ public class Cerrato_Aaron_EstructuraCondicional {
                     "\n4.Votaciones"+
                     "\n5.Salir");
             System.out.println("Eliga una opcion:");
-            char opcion = input.next().charAt(0);
+            int opcion = input.next().charAt(0);
             
             switch (opcion)
             {
-                case '1'://Palabra Alreves
+                case 1://Palabra Alreves
                     numeroValido = false;
                     int nPalabras = 0;
                     do 
@@ -61,7 +61,7 @@ public class Cerrato_Aaron_EstructuraCondicional {
                     String palabraAlrevesLarga = "";
                     String texto = "";
                     
-                    for (int i=1;i <=nPalabras;i++)
+                    for (int i=1;i <=nPalabras;i++) //Va revisando cada palabra . una por una
                     {
                         String palabraAlreves = "";
                         System.out.println("Ingrese la palabra");
@@ -115,7 +115,7 @@ public class Cerrato_Aaron_EstructuraCondicional {
                             +"\n"+texto);
                     alreves ++;
                     break;//Fin case
-                case '2'://Numero Perfecto
+                case 2://Numero Perfecto
                     numeroValido = false;
                     int numeroP = 0;
                     do 
@@ -132,7 +132,7 @@ public class Cerrato_Aaron_EstructuraCondicional {
                     for (int i = 1;i<(numeroP-1);i++)//No lo puedo empezar en 0
                     {
                         
-                        if (numeroP % i ==0)
+                        if (numeroP % i ==0) //Osea si el remainder es 0 agrega la i a divisoress
                         {
                             divisoress += i;
                         }
@@ -143,7 +143,7 @@ public class Cerrato_Aaron_EstructuraCondicional {
                     }
                     perfecto++;
                     break;
-                case '3'://Primos
+                case 3://Primos
                     String divisores = "";
                     int cantDivisores = 0;
                     
@@ -162,7 +162,7 @@ public class Cerrato_Aaron_EstructuraCondicional {
                         divisores = divisores + i;
                         
                         }
-                        else //Sino , agrega y
+                        else //Sino es el primero, agrega "y"
                         {
                         divisores = divisores + " y "+i;
                         }
@@ -183,7 +183,7 @@ public class Cerrato_Aaron_EstructuraCondicional {
                     }
                     primos++;
                     break;
-                case '4'://Votaciones
+                case 4://Votaciones
                     
                     int votantesTotal = 0;
                     numeroValido = false;
@@ -234,6 +234,7 @@ public class Cerrato_Aaron_EstructuraCondicional {
                             default:
                                 votoNulo++;
                                 votoTotal++;
+                                System.out.println("Voto Anulado");
                                 break;
                                 
                         }
@@ -262,7 +263,7 @@ public class Cerrato_Aaron_EstructuraCondicional {
                     }
                     
                         votoPorcentaje =votantesTotal * 0.6;
-                        if (votoValido>= votoPorcentaje)
+                        if (votoValido>= votoPorcentaje) //Revisa si la cantidad de votos valido es mayor o igual al 60%
                         {
                             System.out.println("Planilla Ganadora:"+ganador
                                     +"\nVotos:"+mayor);
