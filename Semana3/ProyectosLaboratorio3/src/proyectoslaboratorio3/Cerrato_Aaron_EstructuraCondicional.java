@@ -275,7 +275,7 @@ public class Cerrato_Aaron_EstructuraCondicional {
                         }
                         votaciones++;
                     break;
-                case '5'://Salir
+                case 5://Salir
                     seguirMenu = false;
                     
                     
