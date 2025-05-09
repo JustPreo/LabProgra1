@@ -11,7 +11,7 @@ import java.util.Random;
  *
  * @author user
  */
-public class ProyectosLaboratorio3 {
+public class Cerrato_Aaron_EstructuraCondicional {
     
 
     /**
@@ -19,6 +19,7 @@ public class ProyectosLaboratorio3 {
      */
     public static void main(String[] args) {
         boolean seguirMenu = true;
+        int alreves = 0,perfecto=0,primos=0,votaciones=0;
         boolean numeroValido = false;
         Scanner input = new Scanner(System.in).useDelimiter("\n");
         
@@ -54,6 +55,7 @@ public class ProyectosLaboratorio3 {
                     a cada palabra que se ingrese, y al final indicar cual ha sido
                     la palabra mas larga y si es palíndromo (Considerar si existe 
                     palabras con la misma cantidad de caracteres). */
+                    
                     int longitudLarga = 0;
                     String palabraLarga = "";
                     String palabraAlrevesLarga = "";
@@ -111,14 +113,14 @@ public class ProyectosLaboratorio3 {
                     
                     System.out.println("-----------------------"
                             +"\n"+texto);
-                    
+                    alreves ++;
                     break;//Fin case
                 case '2'://Numero Perfecto
                     numeroValido = false;
                     int numeroP = 0;
                     do 
                     {
-                    System.out.println("Cantidad de palabras a ingresar:");
+                    System.out.println("Ingrese un numero:");
                     numeroP = input.nextInt();
                     if (numeroP > 0)
                     {
@@ -137,8 +139,9 @@ public class ProyectosLaboratorio3 {
                     }
                     if (numeroP == divisoress)
                     {
-                        System.out.println("Nunmero Perfecto");
+                        System.out.println("Numero Perfecto");
                     }
+                    perfecto++;
                     break;
                 case '3'://Primos
                     String divisores = "";
@@ -178,12 +181,15 @@ public class ProyectosLaboratorio3 {
                         System.out.println("Divisores de "+numero+" son:"+divisores);
                     
                     }
+                    primos++;
                     break;
                 case '4'://Votaciones
+                    
+                    int votantesTotal = 0;
                     numeroValido = false;
                     do {
                     System.out.println("Cuantos votantes hay en el pais?");
-                    int votantesTotal = input.nextInt();
+                    votantesTotal = input.nextInt();
                     if (votantesTotal > 0)
                     {
                         numeroValido = true;
@@ -266,9 +272,17 @@ public class ProyectosLaboratorio3 {
                         {
                             System.out.println("VOTACION FALLIDA");
                         }
+                        votaciones++;
                     break;
                 case '5'://Salir
                     seguirMenu = false;
+                    
+                    
+                    System.out.println("Cantidad de veces ingresado a cada opcion del menu:");
+                    System.out.println("Palabra Alreves :"+alreves+" veces"
+                    +"\nNumero Perfecto :"+perfecto+" veces"
+                    +"\nPrimos :"+primos+" veces"
+                    +"\nVotaciones :"+votaciones+" veces");
                     break;
                 default://Por si no ponen un char valido
                     System.out.println("Ingrese una opcion valida");
