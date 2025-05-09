@@ -100,11 +100,26 @@ public class ProyectosLaboratorio3 {
                     }//Fin for i
                     
                     
-                    System.out.println("-----------------------"+"\n"+texto);
+                    System.out.println("-----------------------"
+                            +"\n"+texto);
                     
                     break;//Fin case
                 case '2'://Numero Perfecto
-                    
+                    System.out.println("Ingrese un numero:");
+                    int numeroP = input.nextInt();
+                    int divisoress = 0;
+                    for (int i = 1;i<(numeroP-1);i++)//No lo puedo empezar en 0
+                    {
+                        
+                        if (numeroP % i ==0)
+                        {
+                            divisoress += i;
+                        }
+                    }
+                    if (numeroP == divisoress)
+                    {
+                        System.out.println("Nunmero Perfecto");
+                    }
                     break;
                 case '3'://Primos
                     String divisores = "";
@@ -152,6 +167,7 @@ public class ProyectosLaboratorio3 {
                     double votoPorcentaje=0,votoPorcentajeTotal=0;
                     int votoValido = 0,mayor=0;
                     String ganador = "";
+                   // int ganadorPuntos = 0;
                     //Iniciar variables
                     
                     for (int i = 0;i < votantesTotal;i++)
@@ -215,7 +231,8 @@ public class ProyectosLaboratorio3 {
                         votoPorcentaje =votantesTotal * 0.6;
                         if (votoValido>= votoPorcentaje)
                         {
-                            System.out.println("Gano:"+ganador);
+                            System.out.println("Planilla Ganadora:"+ganador
+                                    +"\nVotos:"+mayor);
                         
                         }
                     break;
