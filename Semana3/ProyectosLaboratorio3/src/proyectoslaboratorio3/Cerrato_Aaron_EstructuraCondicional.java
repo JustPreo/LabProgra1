@@ -33,7 +33,7 @@ public class Cerrato_Aaron_EstructuraCondicional {
                     "\n4.Votaciones"+
                     "\n5.Salir");
             System.out.println("Eliga una opcion:");
-            int opcion = input.next().charAt(0);
+            int opcion = input.nextInt();
             
             switch (opcion)
             {
