@@ -19,6 +19,7 @@ public class ProyectosLaboratorio3 {
      */
     public static void main(String[] args) {
         boolean seguirMenu = true;
+        boolean numeroValido = false;
         Scanner input = new Scanner(System.in).useDelimiter("\n");
         
         
@@ -36,10 +37,18 @@ public class ProyectosLaboratorio3 {
             switch (opcion)
             {
                 case '1'://Palabra Alreves
+                    numeroValido = false;
+                    int nPalabras = 0;
+                    do 
+                    {
                     System.out.println("Cantidad de palabras a ingresar:");
-                    int nPalabras = input.nextInt();
-                    
-                    
+                    nPalabras = input.nextInt();
+                    if (nPalabras > 0)
+                    {
+                        numeroValido = true;
+                    }
+                    }
+                    while (!numeroValido);
                     /*Palabra Alreves. Ingresar una cantidad de palabras y luego
                     se ingresa una String desde el teclado, e imprimir al revés
                     a cada palabra que se ingrese, y al final indicar cual ha sido
@@ -105,8 +114,18 @@ public class ProyectosLaboratorio3 {
                     
                     break;//Fin case
                 case '2'://Numero Perfecto
-                    System.out.println("Ingrese un numero:");
-                    int numeroP = input.nextInt();
+                    numeroValido = false;
+                    int numeroP = 0;
+                    do 
+                    {
+                    System.out.println("Cantidad de palabras a ingresar:");
+                    numeroP = input.nextInt();
+                    if (numeroP > 0)
+                    {
+                        numeroValido = true;
+                    }
+                    }
+                    while (!numeroValido);
                     int divisoress = 0;
                     for (int i = 1;i<(numeroP-1);i++)//No lo puedo empezar en 0
                     {
@@ -161,8 +180,16 @@ public class ProyectosLaboratorio3 {
                     }
                     break;
                 case '4'://Votaciones
+                    numeroValido = false;
+                    do {
                     System.out.println("Cuantos votantes hay en el pais?");
                     int votantesTotal = input.nextInt();
+                    if (votantesTotal > 0)
+                    {
+                        numeroValido = true;
+                    }
+                    }
+                    while (!numeroValido);
                     int votoAzul=0 , votoRojo=0 , votoNegro=0 , votoAmarillo=0,votoTotal=0,votoNulo=0;
                     double votoPorcentaje=0,votoPorcentajeTotal=0;
                     int votoValido = 0,mayor=0;
@@ -235,6 +262,10 @@ public class ProyectosLaboratorio3 {
                                     +"\nVotos:"+mayor);
                         
                         }
+                        else
+                        {
+                            System.out.println("VOTACION FALLIDA");
+                        }
                     break;
                 case '5'://Salir
                     seguirMenu = false;
@@ -250,13 +281,7 @@ public class ProyectosLaboratorio3 {
         
         
         }
-        
-        
-        
-        
-        
-        
-        
+
         
     }
     
