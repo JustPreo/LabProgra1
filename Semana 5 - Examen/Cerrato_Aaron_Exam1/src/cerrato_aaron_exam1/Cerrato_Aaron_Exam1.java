@@ -32,14 +32,27 @@ public class Cerrato_Aaron_Exam1 {
             switch (opcion)
             {
                 case 1://Piramide
+                    int cantidadF = 0;
+                    do {
                     System.out.println("Cantidad de filas de la piramide:");
-                    int cantidadF = input.nextInt();
+                    cantidadF = input.nextInt();
+                    
+                    if ((cantidadF<0))
+                    {
+                        System.out.println("Ingrese un numero valido\n");
+                    }
+                    }
+                    while ((cantidadF<0));
                     String piramide = "";
                     int contador = 1;
+                    
                     for (int i = 1;i<=cantidadF;i++)
                     {
                         int suma =0;
+                        if (!piramide.equals(""))
+                        {
                         piramide += "\n";
+                        }
                         for (int j = 0;j < i;j++)
                         {
                             piramide += contador + " ";
@@ -240,7 +253,12 @@ public class Cerrato_Aaron_Exam1 {
                     }
                     break;
                 case 4://Adivinar
-                    int numeroR = r.nextInt(100);
+                    int numeroR = r.nextInt(101);//101 porque si no , no genera 100
+                    while (numeroR == 0)
+                    {
+                    numeroR = r.nextInt(101);//Para que no se bugee como la ultima vez XD
+                    }
+                    int intentosRealizados = 0;
                     
                     int intentos = 10;
                     while (intentos != 0)
@@ -253,13 +271,14 @@ public class Cerrato_Aaron_Exam1 {
                             System.out.println("FELICIDADES!");
                             System.out.println("Adivinaste el numero");
                             
-                            System.out.println("\nTerminaste con "+intentos+" intentos restantes!");
+                            System.out.println("\nLo encontraste en "+intentosRealizados +" Intentos");
                             break;
                         }
                         else if(numeroI > numeroR)
                         {
                             System.out.println("El numero random es menor al numero ingresado");
                             intentos -=1;
+                            intentosRealizados++;
                             System.out.println("Te quedan "+intentos+" intentos!"+
                                             "\n================");
                         }
@@ -267,6 +286,7 @@ public class Cerrato_Aaron_Exam1 {
                         {
                             System.out.println("El numero random es mayor al numero ingresado");
                             intentos -=1;
+                            intentosRealizados++;
                             System.out.println("Te quedan "+intentos+" intentos!"+
                                             "\n================");
                         }
@@ -282,6 +302,7 @@ public class Cerrato_Aaron_Exam1 {
                     break;
                 case 5://Salir
                     menu = false;
+                    System.out.println("Saliendo...");
                     break;
                 default://En caso de no ser valido
                     System.out.println("Ingrese una opcion valida");
