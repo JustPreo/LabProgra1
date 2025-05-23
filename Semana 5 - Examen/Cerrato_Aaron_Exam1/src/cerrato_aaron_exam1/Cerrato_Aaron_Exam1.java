@@ -20,11 +20,11 @@ public class Cerrato_Aaron_Exam1 {
         while (menu)
         {
             System.out.println("======Menu======"
-                    + "\n  1.Piramide"
-                    + "\n  2.Clave"
-                    + "\n  3.Piedra , Papel , Tijera!"
-                    + "\n  4.Adivinar"
-                    + "\n  5.Salir");
+                    + "\n1.Piramide"
+                    + "\n2.Clave"
+                    + "\n3.Piedra , Papel , Tijera!"
+                    + "\n4.Adivinar"
+                    + "\n5.Salir");
             
             System.out.println("================"+"\nIngrese una opcion");
             int opcion = input.nextInt();
