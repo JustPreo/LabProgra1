@@ -168,6 +168,7 @@ public class Cerrato_Aaron_EstructuraCondicional {
                         }
                     cantDivisores +=1;
                     }
+                    
                     }
                     
                     if (cantDivisores == 2) //Primo
