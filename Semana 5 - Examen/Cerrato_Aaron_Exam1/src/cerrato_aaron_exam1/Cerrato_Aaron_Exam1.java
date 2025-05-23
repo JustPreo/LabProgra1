@@ -26,7 +26,7 @@ public class Cerrato_Aaron_Exam1 {
                     + "\n  4.Adivinar"
                     + "\n  5.Salir");
             
-            System.out.println("=================="+"\nIngrese una opcion");
+            System.out.println("================"+"\nIngrese una opcion");
             int opcion = input.nextInt();
             
             switch (opcion)
@@ -39,14 +39,50 @@ public class Cerrato_Aaron_Exam1 {
                     break;
                 case 4://Adivinar
                     int numeroR = r.nextInt(100);
-                    System.out.println("Numero:"+numeroR);
+                    
+                    int intentos = 10;
+                    while (intentos != 0)
+                    {
+                        System.out.println("Ingrese un numero");
+                        int numeroI = input.nextInt();
+                        if (numeroI == numeroR)
+                        {
+                            System.out.println("\n================");
+                            System.out.println("FELICIDADES!");
+                            System.out.println("Adivinaste el numero");
+                            
+                            System.out.println("\nTerminaste con "+intentos+" intentos restantes!");
+                            break;
+                        }
+                        else if(numeroI > numeroR)
+                        {
+                            System.out.println("El numero random es menor al numero ingresado");
+                            intentos -=1;
+                            System.out.println("Te quedan "+intentos+" intentos!"+
+                                            "\n================");
+                        }
+                        else if (numeroI < numeroR)
+                        {
+                            System.out.println("El numero random es mayor al numero ingresado");
+                            intentos -=1;
+                            System.out.println("Te quedan "+intentos+" intentos!"+
+                                            "\n================");
+                        }
+                    
+                    }
+                    
+                    if (intentos == 0)
+                    {
+                        System.out.println("Suerte la proxima");
+                        System.out.println("El numero era: "+numeroR);
+                    }
+                    
                     break;
                 case 5://Salir
                     menu = false;
-                    System.out.println("A");
                     break;
                 default://En caso de no ser valido
-                    System.out.println("AAAAAAAA");
+                    System.out.println("Ingrese una opcion valida");
                     break;
             }//Fin Switch
                     
