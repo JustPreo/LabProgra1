@@ -137,10 +137,12 @@ int contador = 0;
             Cerrato_Aaron_IDClase.palabras[contador] = PalabraNueva.getText();
             contador++;
             Nuevas.setText(nuevasPalabras);
+            PalabraNueva.setText("");
         }
         else if ((PalabraNueva.getText().contains(" ")))
         {
         JOptionPane.showMessageDialog(this, "No puede incluir espacios su palabra");
+        PalabraNueva.setText("");
         }
         if (contador >= 10)
         {

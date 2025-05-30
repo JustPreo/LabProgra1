@@ -136,11 +136,13 @@ String textoResp = Respuesta.getText().trim();
 if (textoResp.isEmpty())
 {
     JOptionPane.showMessageDialog(this,"No puedes dejar el mensaje vacio!");
+    Respuesta.setText("");
     return;
 }
 if (textoResp.length()>1)
 {
 JOptionPane.showMessageDialog(this, "No puedes poner mas de una letra");
+Respuesta.setText("");
 return;
 }
 
