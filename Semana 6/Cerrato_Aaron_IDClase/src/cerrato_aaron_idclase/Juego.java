@@ -25,15 +25,13 @@ public class Juego extends javax.swing.JFrame {
     public Juego() {
         for (int i = 0;i<palabra.length();i++)
             {
-            dashes += "_";
+            dashes += "_ ";
             }
         nuevoDash = dashes;
-        System.out.println(palabra);
         initComponents();
         this.setResizable(false);
         this.setTitle("Juego");
         this.setLocationRelativeTo(null);
-        System.out.println(nuevoDash);
 
         
         
@@ -70,7 +68,7 @@ public class Juego extends javax.swing.JFrame {
         if (nuevoDash.equals(""))
         {
             laPalabraEnDashes.setText(dashes);
-            System.out.println(dashes);
+
         }
         else
         {
@@ -88,41 +86,44 @@ public class Juego extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(199, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(317, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(laPalabraEnDashes, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(TEXTOINGRESECARACTER)
+                        .addGap(302, 302, 302))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(TEXTOINGRESECARACTER)
-                                .addGap(32, 32, 32)
-                                .addComponent(Intentos, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
-                                    .addComponent(Respuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(149, 149, 149))))
-                    .addComponent(TITULO))
-                .addGap(164, 164, 164))
+                            .addComponent(jButton1)
+                            .addComponent(Respuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(313, 313, 313))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(TITULO)
+                                .addGap(63, 63, 63))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(laPalabraEnDashes, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)))
+                        .addComponent(Intentos, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(146, 146, 146))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addComponent(TITULO)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Intentos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(laPalabraEnDashes))
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TEXTOINGRESECARACTER)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Respuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addContainerGap(276, Short.MAX_VALUE))
         );
 
         pack();
@@ -143,10 +144,7 @@ JOptionPane.showMessageDialog(this, "No puedes poner mas de una letra");
 return;
 }
 
-if (intentos == 0)
-{
-JOptionPane.showMessageDialog(this, "No se adivino la palabra:(\n"+"La palabra era: "+palabra);
-}
+
 
 if (!(textoResp.equals(" ")) && intentos != 0)
 {
@@ -161,16 +159,16 @@ if (!(textoResp.equals(" ")) && intentos != 0)
             char letra = Respuesta.getText().charAt(0);
             if (Character.toLowerCase(letra) == Character.toLowerCase(palabra.charAt(j)))
                 {
-                    temporal += palabra.charAt(j);
+                    temporal += palabra.charAt(j) + " ";
                     encontrado = true;
                 }
-            else if (nuevoDash.charAt(j) != '_')
+            else if (nuevoDash.charAt(j*2) != '_')
             {
-            temporal += nuevoDash.charAt(j);
+            temporal += nuevoDash.charAt((j*2))+" ";
             }
             else 
             {
-            temporal += "_";
+            temporal += "_ ";
             }
             
         }
@@ -184,12 +182,24 @@ if (!(textoResp.equals(" ")) && intentos != 0)
         nuevoDash = temporal;
         laPalabraEnDashes.setText(nuevoDash);
         Intentos.setText("Intentos:"+intentos);
-        if (nuevoDash.equals(palabra))
+        if (nuevoDash.replaceAll(" ", "").equals(palabra))
         {
         JOptionPane.showMessageDialog(this, "Encontraste la palabra con "+intentos+" intentos restantes!");
+        Cerrato_Aaron_IDClase menu = new Cerrato_Aaron_IDClase();
+        menu.setVisible(true);
+        dispose();
         }
         
+        
         Respuesta.setText("");
+        
+        if (intentos == 0)
+{
+    JOptionPane.showMessageDialog(this, "No se adivino la palabra:(\n"+"La palabra era: "+palabra);
+    Cerrato_Aaron_IDClase menu = new Cerrato_Aaron_IDClase();
+    menu.setVisible(true);
+    dispose();
+}
 }
 
     }//GEN-LAST:event_jButton1ActionPerformed
